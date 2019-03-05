@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BasicEnemy.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\LineOfSight.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
