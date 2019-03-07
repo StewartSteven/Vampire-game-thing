@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gm;
+    public static GameManager GM;
     public bool isLit = false;
     private void Awake()
     {
-        if (gm == null) gm = this;
-        else if (gm != null) Destroy(gameObject);
+        if (GM == null) GM = this;
+        else if (GM != null) Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
@@ -25,14 +25,7 @@ public class GameManager : MonoBehaviour
     }
     public void setLit()
     {
-        if (!isLit)
-        {
-           isLit = true;
-        }
-        else
-        {
-            isLit = false;
-        }
+        isLit = !isLit;
 
     }
 }

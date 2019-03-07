@@ -37,14 +37,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Light"))
         {
-            isLit = true;
+            GameManager.GM.setLit();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Light"))
         {
-            isLit = false;
+            GameManager.GM.setLit();
         }
     }
 }
