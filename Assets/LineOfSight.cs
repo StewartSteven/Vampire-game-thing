@@ -19,9 +19,18 @@ public class LineOfSight : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && GameManager.GM.isLit == true)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("I see you");
+            Debug.Log("Sight established");
+            GameManager.GM.setVisible();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Sight lost");
+            GameManager.GM.setVisible();
         }
     }
 

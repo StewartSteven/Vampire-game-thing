@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
-    public bool isLit = false;
+    public bool isVisible = false;
     private void Awake()
     {
         if (GM == null) GM = this;
@@ -23,9 +23,13 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void setLit()
+    public void setVisible()
     {
-        isLit = !isLit;
+        isVisible = !isVisible;
 
+    }
+   public IEnumerable visibilityCheck()
+    {
+        yield return new WaitUntil(() => isVisible == true);
     }
 }
