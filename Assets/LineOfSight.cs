@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LineOfSight : MonoBehaviour
 {
-    GameObject player = GameObject.Find("Player");
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-      //  player;
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -21,7 +21,16 @@ public class LineOfSight : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("I see you");
+            Debug.Log("Sight established");
+            GameManager.GM.setVisible();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Sight lost");
+            GameManager.GM.setVisible();
         }
     }
 

@@ -33,18 +33,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Light"))
-        {
-            isLit = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Light"))
-        {
-            isLit = false;
-        }
-    }
+   
+    
+   
 }
