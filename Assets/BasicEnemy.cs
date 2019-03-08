@@ -9,17 +9,13 @@ public class BasicEnemy : MonoBehaviour
     private bool movingright = true;
     public Transform groundDetection;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-        if(groundInfo.collider == false)
+        if (groundInfo.collider == false)
         {
             if (movingright == true)
             {
