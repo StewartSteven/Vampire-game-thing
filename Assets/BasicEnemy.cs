@@ -8,11 +8,19 @@ public class BasicEnemy : MonoBehaviour
     public float distance;
     private bool movingright = true;
     public Transform groundDetection;
+    public Transform target;
+    public GameObject player;
+   
     void Update()
     {
 
         transform.Translate(Vector2.right * speed * Time.deltaTime);
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+        if (GameManager.GM.willHunt)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x, transform.position.y), speed * Time.deltaTime);
+
+        }
         if (groundInfo.collider == false)
         {
             if (movingright == true)

@@ -6,13 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     public float Speed;
-    public bool isLit;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        isLit = false;
     }
 
     // Update is called once per frame
