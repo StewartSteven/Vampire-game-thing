@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd34e99a3a07a7c478ca21e2218f3be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLit: 0
+  isVisible: 0
 --- !u!4 &1453676204
 Transform:
   m_ObjectHideFlags: 0
@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 1657086915}
   - component: {fileID: 1657086917}
   - component: {fileID: 1657086916}
+  - component: {fileID: 1657086918}
   m_Layer: 0
   m_Name: Light
   m_TagString: Light
@@ -749,6 +750,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1657086918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657086914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4b777eaca9b6845ae623524f31a826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2137427053
 GameObject:
   m_ObjectHideFlags: 0
