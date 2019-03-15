@@ -11,20 +11,22 @@ public class BasicEnemy : MonoBehaviour
     public Transform groundDetection;
     private Transform target;
     public GameObject player;
-    public float StoppingDistance;
      void Start()
     {
         target = player.transform;
     }
     void Update()
     {
-
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
         if (GameManager.GM.willHunt)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, fastSpeed * Time.deltaTime);
 
+        }
+        else
+        {
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
         if (groundInfo.collider == false)
         {
@@ -38,6 +40,13 @@ public class BasicEnemy : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 movingright = true;
             }
+        }
+    }
+    private void OnTriggerEnter2d(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Kill"))
+        {
+            Destroy(this.gameObject);
         }
     }
 }

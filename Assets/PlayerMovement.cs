@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     public float jumpHeight;
     private bool isJumping = false;
+    GameObject Kill;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Kill = GameObject.Find("Kill");
     }
 
     // Update is called once per frame
@@ -33,17 +36,32 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
         }
         if (Input.GetKeyDown(KeyCode.Space) && isJumping == false)
-            {
-                    rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-                    isJumping = true;
-             }
-            
+        {
+            rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            isJumping = true;
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GameObject KillBox = GameObject.Instantiate();
+            Destroy(KillBox);
+        }
+
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("ground"))
+        if (col.gameObject.CompareTag("ground")&& isJumping)
         {
             isJumping = false;
+            this.gameObject.transform.parent = col.gameObject.transform;
+        }
+        if (col.gameObject.CompareTag("Platform") && isJumping)
+        {
+            isJumping = false;
+            this.gameObject.transform.parent = col.gameObject.transform;
         }
     }
 
