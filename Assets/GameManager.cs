@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
     public bool isVisible = false;
+    public bool willHunt = false;
     private void Awake()
     {
         if (GM == null) GM = this;
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
     {
         isVisible = !isVisible;
 
+    }
+    public void setHunt()
+    {
+        willHunt = !willHunt;
     }
    public IEnumerable visibilityCheck()
     {

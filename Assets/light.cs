@@ -20,6 +20,7 @@ public class light : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && GameManager.GM.isVisible == true)
         {
             Debug.Log("I see you");
+            GameManager.GM.setHunt();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -27,6 +28,7 @@ public class light : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && GameManager.GM.isVisible == true)
         {
             Debug.Log("I dont see you");
+            GameManager.GM.setHunt();
         }
     }
 }
