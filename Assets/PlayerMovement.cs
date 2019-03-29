@@ -44,12 +44,12 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        /*if (Input.GetKeyDown(KeyCode.F))
         {
             GameObject KillBox = GameObject.Instantiate();
             Destroy(KillBox);
         }
-
+        */
     }
     void OnCollisionEnter2D(Collision2D col)
     {

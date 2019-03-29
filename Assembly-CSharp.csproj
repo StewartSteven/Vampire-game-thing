@@ -64,6 +64,7 @@
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\light.cs" />
     <Compile Include="Assets\LineOfSight.cs" />
+    <Compile Include="Assets\PlatformMover.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Steve/Documents/Vampire game thing/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

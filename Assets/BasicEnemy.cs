@@ -13,7 +13,6 @@ public class BasicEnemy : MonoBehaviour
     public GameObject player;
      void Start()
     {
-        target = player.transform;
     }
     void Update()
     {
@@ -21,6 +20,8 @@ public class BasicEnemy : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
         if (GameManager.GM.willHunt)
         {
+            target = player.transform;
+
             transform.position = Vector2.MoveTowards(transform.position, target.position, fastSpeed * Time.deltaTime);
 
         }

@@ -17,6 +17,7 @@ public class light : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //StartCoroutine("WaitforVisibility");
         if (other.gameObject.CompareTag("Player") && GameManager.GM.isVisible == true)
         {
             Debug.Log("I see you");
@@ -25,10 +26,14 @@ public class light : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && GameManager.GM.isVisible == true)
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("I dont see you");
             GameManager.GM.setHunt();
         }
+    }
+    IEnumerator WaitforVisibility()
+    {
+        yield return new WaitUntil(() => GameManager.GM.isVisible);
     }
 }
