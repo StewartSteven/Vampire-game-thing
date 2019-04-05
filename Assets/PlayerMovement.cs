@@ -56,13 +56,19 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.CompareTag("ground")&& isJumping)
         {
             isJumping = false;
-            this.gameObject.transform.parent = col.gameObject.transform;
+            this.gameObject.transform.parent = null;
         }
         if (col.gameObject.CompareTag("Platform") && isJumping)
         {
             isJumping = false;
             this.gameObject.transform.parent = col.gameObject.transform;
         }
+        if (col.gameObject.CompareTag("Falling") && isJumping)
+        {
+            isJumping = false;
+            this.gameObject.transform.parent = col.gameObject.transform;
+        }
+
     }
 
 }

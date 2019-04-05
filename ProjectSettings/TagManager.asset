@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Kill
   - Foe
+  - Falling
   layers:
   - Default
   - TransparentFX
