@@ -17,6 +17,10 @@ public class FallingPlatform : MonoBehaviour
         {
             Invoke("DropPlatform", 0.1f);
         }
+        if (col.gameObject.CompareTag("Water"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void DropPlatform()

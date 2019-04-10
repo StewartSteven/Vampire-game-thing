@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         /*if (Input.GetKeyDown(KeyCode.F))
         {
@@ -50,14 +50,13 @@ public class PlayerMovement : MonoBehaviour
             Destroy(KillBox);
         }
         */
+        if (isJumping == true)
+        {
+            this.gameObject.transform.parent = null;
+        }
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("ground")&& isJumping)
-        {
-            isJumping = false;
-            this.gameObject.transform.parent = null;
-        }
         if (col.gameObject.CompareTag("Platform") && isJumping)
         {
             isJumping = false;
@@ -66,9 +65,17 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.CompareTag("Falling") && isJumping)
         {
             isJumping = false;
-            this.gameObject.transform.parent = col.gameObject.transform;
+            
+        }
+        if (col.gameObject.CompareTag("ground") && isJumping)
+        {
+            isJumping = false;
+            this.gameObject.transform.parent = null;
+        }
+        if (col.gameObject.CompareTag("Water"))
+        {
+            SceneManager.LoadScene(1);
         }
 
     }
-
 }
