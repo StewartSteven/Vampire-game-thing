@@ -11,7 +11,8 @@ public class BasicEnemy : MonoBehaviour
     public Transform groundDetection;
     private Transform target;
     public GameObject player;
-     void Start()
+    public int health;
+    void Start()
     {
     }
     void Update()
@@ -39,12 +40,13 @@ public class BasicEnemy : MonoBehaviour
                 }
             }
         }
-    }
-    private void OnTriggerEnter2d(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Kill"))
+        if (health <= 0)
         {
-            Destroy(this.gameObject);
+            GameObject.Destroy(this.gameObject);
         }
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }

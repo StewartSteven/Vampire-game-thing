@@ -9,18 +9,37 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     public float jumpHeight;
     private bool isJumping = false;
-    GameObject Kill;
+    private float timeBtwAttack;
+    public float startTimeBtwAttack;
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
+    public float attackRange;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Kill = GameObject.Find("Kill");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F) && timeBtwAttack <= 0)
+        {
+            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+            for (int i = 0; i < enemiesToDamage.Length; i++)
+            {
+                enemiesToDamage[i].GetComponent<BasicEnemy>().health -= damage;
+
+            }
+            timeBtwAttack = startTimeBtwAttack;
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
         if (Input.GetAxisRaw("Horizontal") < 0f)
         {
             rb.velocity = new Vector3(-Speed, rb.velocity.y, 0f);
@@ -44,12 +63,6 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-        /*if (Input.GetKeyDown(KeyCode.F))
-        {
-            GameObject KillBox = GameObject.Instantiate();
-            Destroy(KillBox);
-        }
-        */
         if (isJumping == true)
         {
             this.gameObject.transform.parent = null;
