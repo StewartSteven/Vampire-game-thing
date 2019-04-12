@@ -61,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
             this.gameObject.transform.parent = col.gameObject.transform;
+             if(isJumping == true)
+            {
+                this.gameObject.transform.parent = null;
+            }
         }
         if (col.gameObject.CompareTag("Falling") && isJumping)
         {
@@ -70,7 +74,12 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.CompareTag("ground") && isJumping)
         {
             isJumping = false;
+            Debug.Log("Check");
             this.gameObject.transform.parent = null;
+            if (isJumping == true)
+            {
+                this.gameObject.transform.parent = null;
+            }
         }
         if (col.gameObject.CompareTag("Water"))
         {
