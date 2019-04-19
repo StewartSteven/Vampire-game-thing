@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
+                Debug.Log("Enemy damage" + enemiesToDamage[i]);
                 enemiesToDamage[i].GetComponent<BasicEnemy>().health -= damage;
 
             }
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         if (isJumping == true)
         {
@@ -96,7 +97,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Water"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
+        }
+        if (col.gameObject.CompareTag("End"))
+        {
+            SceneManager.LoadScene(0);
         }
 
     }
