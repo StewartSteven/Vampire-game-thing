@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.F) && timeBtwAttack <= 0)
         {
@@ -77,7 +77,8 @@ public class PlayerMovement : MonoBehaviour
             this.gameObject.transform.parent = col.gameObject.transform;
              if(isJumping == true)
             {
-                this.gameObject.transform.parent = null;
+                    this.gameObject.transform.parent = null;
+
             }
         }
         if (col.gameObject.CompareTag("Falling") && isJumping)

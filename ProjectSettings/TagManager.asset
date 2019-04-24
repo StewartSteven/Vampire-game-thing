@@ -12,6 +12,7 @@ TagManager:
   - Falling
   - Water
   - End
+  - Feet
   layers:
   - Default
   - TransparentFX
