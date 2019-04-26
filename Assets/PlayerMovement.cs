@@ -44,12 +44,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < 0f)
         {
             rb.velocity = new Vector3(-Speed, rb.velocity.y, 0f);
-            // transform.localScale = new Vector3(-1, transform.localScale.y, 1);
+            transform.localScale = new Vector3(-1, transform.localScale.y, 1);
         }
         else if (Input.GetAxisRaw("Horizontal") > 0f)
         {
             rb.velocity = new Vector3(Speed, rb.velocity.y, 0f);
-            // transform.localScale = new Vector3(1, transform.localScale.y, 1);
+             transform.localScale = new Vector3(1, transform.localScale.y, 1);
         }
         else
         {
